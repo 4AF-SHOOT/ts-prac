@@ -1,6 +1,7 @@
 {
   "script": {
-    "start": "nodemon --watch src -e ts --exec ts-node src/index.ts"
+    "start": "nodemon --watch src -e ts --exec ts-node src/index.ts",
+    "build": "rd /s /q dist & tsc"
   },
   "devDependencies": {
     "@types/node": "^14.14.9"

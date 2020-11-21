@@ -51,5 +51,5 @@ function printDeck(deck: Deck): void {
   })
   console.log(res);
 }
-
-printDeck(createDeck());
+const deck = createDeck();
+printDeck(deck);
