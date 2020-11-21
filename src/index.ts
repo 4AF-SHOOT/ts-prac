@@ -26,28 +26,30 @@ function createDeck(): Deck {
 }
 
 function printDeck(deck: Deck): void {
-  let str: string = '';
+  let res: string = '';
   deck.forEach((it, ix) => {
-    const {color, num} = it;
+    let str = it.color;
+    const {num} = it;
     switch (num) {
       case 11:
-        str += color + 'J' + '\t';
+        str += 'J';
         break;
       case 12:
-        str += color + 'Q' + '\t';
+        str += 'Q';
         break;
       case 13:
-        str += color + 'K' + '\t';
+        str += 'K';
         break;
       default:
-        str += color + num + '\t';
+        str += num;
         break;
     }
+    res += str + '\t'
     if ((ix + 1) % 4 === 0) {
-      str += '\n';
+      res += '\n';
     }
   })
-  console.log(str);
+  console.log(res);
 }
 
 printDeck(createDeck());
