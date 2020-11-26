@@ -1,3 +1,4 @@
-let say: string = 'hello';
+import { createDeck, printDeck } from "./funcs";
 
-console.log(say);
+const deck = createDeck();
+printDeck(deck);
