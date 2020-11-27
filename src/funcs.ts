@@ -5,46 +5,47 @@ import { Deck } from "./type";
 export function createDeck(): Deck {
   const deck: Deck = [];
   const colors = Object.values(Color);
-  const Nums = Object.values(Num);
-  const Jokers = Object.values(Joker);
+  const nums = Object.values(Num);
+  const jockers = Object.values(Joker);
 
-  for (let n of Nums) {
-    for (let c of colors) {
+  nums.forEach(num => {
+    colors.forEach(color => {
       deck.push({
-        color: c,
-        mark: n,
-        getString: function() {
+        color: color,
+        mark: num,
+        getString() {
           return this.color + this.mark + '\t';
         }
-      } as Card)
-    }
-  }
+      } as Card);
+    })
+  })
 
-  for (let j of Jokers) {
+  jockers.forEach(jocker => {
     deck.push({
-      type: j,
+      type: jocker,
       getString() {
         return this.type + '\t';
       }
-    } as Card)
-  }
+    } as Card);
+  })
 
-  const Ad: ADCard = {
+  const Adcard: ADCard = {
     mark: 'ADCard',
-    getString: function () {
+    getString() {
       return this.mark;
     }
   }
-  deck.push(Ad);
+
+  deck.push(Adcard);
 
   return deck;
 }
 
 export function printDeck(deck: Deck): void {
   let str: string = '';
-  deck.forEach((it, ix) => {
-    str += it.getString();
-    if ((ix+1)%4 === 0) str += '\n';
+  deck.forEach((card, ix) => {
+    str += card.getString();
+    if ((ix+1) % 4 === 0) str += '\n';
   })
   console.log(str);
 }
